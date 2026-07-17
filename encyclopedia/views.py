@@ -64,7 +64,7 @@ def edit(request, title):
         util.save_entry(edited_title, edited_content)
         return redirect("entry", title=edited_title)
 
-    return render(request, 'encyclopedia/edit.html', {'title': title, 'content': converter_md_to_html(title)})
+    return render(request, 'encyclopedia/edit.html', {'title': title, 'content': util.get_entry(title)})
 
 def random_entry(request):
     entries = util.list_entries()
